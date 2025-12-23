@@ -6,7 +6,7 @@ const filePath = path.resolve('./users.json')
 let users = JSON.parse(fs.readFileSync(filePath, { encoding: 'utf-8' }))
 
 const saveToFile = () => {
-    fs.writeFileSync(filePath, JSON.stringify(users))
+    fs.writeFileSync(filePath, JSON.stringify(users,null,2))
 }
 
 const app = express()
