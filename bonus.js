@@ -1,4 +1,4 @@
-const input = ["apple", "sppice", "append"];
+const input = ["cir","car"];
 
 function longestCommonPrefix(strs) {
 
@@ -10,19 +10,23 @@ function longestCommonPrefix(strs) {
         }
     }
 
-    if (strs.length === 0 || smallest=="") return "";
-    let prefix = smallest.slice(0, 0)
-    for (let i = 0; i <smallest.length; i++) {
+    let prefix = "";
+
+    for (let i = 0; i < smallest.length; i++) {
+        prefix += smallest[i];
+
         for (let j = 0; j < strs.length; j++) {
-            if (strs[j].includes(prefix)) {
+            if (strs[j][i] == smallest[i]) {
                 continue;
             }
             else {
-                return prefix.slice(0, -1)
+                return prefix.slice(0, prefix.length - 1);
             }
         }
-        prefix = smallest.slice(0, i + 1)
-    }
-}
 
+    }
+    return prefix;
+}
 console.log(longestCommonPrefix(input));
+
+
